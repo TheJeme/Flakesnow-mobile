@@ -2,13 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flakesnow"
-             x:Class="Flakesnow.MainPage">
+             BackgroundColor="#36393f"                  
+             x:Class="Flakesnow.MainPage"
+             Title="Flakesnow">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+                 Icon="plus.png"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnCreateNewClicked"/>
+        <ToolbarItem
+                 Icon="menu.png"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnSettingsClicked"/>
+    </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+
+        <Grid Margin="0,30">
+            <Frame BackgroundColor="#e33b29" CornerRadius="16" Margin="30,20">
+                <StackLayout>
+                    <Label Text="Reminder" TextColor="White" FontSize="24" />
+                    <Label Text="Skrybä on äijä Skrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjä" TextColor="White" FontSize="16" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+        
     </StackLayout>
 
 </ContentPage>

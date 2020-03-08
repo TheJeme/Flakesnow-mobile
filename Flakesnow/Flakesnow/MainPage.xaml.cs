@@ -13,5 +13,15 @@ namespace Flakesnow
         {
             InitializeComponent();
         }
+
+        void OnSettingsClicked(object sender, EventArgs args)
+        {
+            DisplayAlert("Hi", "hi", "canhel");
+        }
+
+        void OnCreateNewClicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new CreateNewReminderPage());
+        }
     }
 }

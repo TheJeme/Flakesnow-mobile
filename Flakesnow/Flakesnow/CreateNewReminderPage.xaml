@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Flakesnow"
+             x:Class="Flakesnow.CreateNewReminderPage"
+             BackgroundColor="#36393f">
+    <ContentPage.ToolbarItems>
+            <ToolbarItem
+                 Name="Save"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnSaveClicked"/>
+        </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Label Text="Create new"
+                   TextColor="White"
+                   FontSize="48"
+                   Margin="20"
+                   HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                <Frame x:Name="ReminderFrame"
+                       BackgroundColor="LightGray"
+                       CornerRadius="16"
+                       Margin="22"
+                       WidthRequest="200">
+                    
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReminderTapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Reminder" TextColor="#7289da" FontSize="24" HorizontalTextAlignment="Center"/>
+                </Frame>
+                <Frame x:Name="CounterFrame"
+                       BackgroundColor="LightGray"
+                       CornerRadius="16"
+                       Margin="22"
+                       WidthRequest="200">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCounterTapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Counter" TextColor="#7289da" FontSize="24" HorizontalTextAlignment="Center"/>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center" Margin="5">
+                <Label Text="Title" Margin="20,0" TextColor="White" FontSize="24"/>
+                <Frame BackgroundColor="White"
+                       CornerRadius="16"
+                       Margin="5"
+                       WidthRequest="300"
+                       HeightRequest="25">
+                    
+                    <local:CustomEntry MaxLength="40"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout x:Name="ReminderLayout" IsVisible="False" HorizontalOptions="Center" Margin="5,10">
+                <Label Text="Description" Margin="20,0" TextColor="White" FontSize="24"/>
+                <Frame BackgroundColor="White"
+                       CornerRadius="16"
+                       Margin="5"
+                       WidthRequest="300"
+                       HeightRequest="150">
+                    <local:CustomEditor VerticalOptions="FillAndExpand"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout x:Name="CounterLayout" Orientation="Horizontal" IsVisible="True" HorizontalOptions="Center"  Margin="5,10">
+                <StackLayout>
+                    <Label Text="Date" Margin="20,0" TextColor="White" FontSize="24"/>
+                    <Frame BackgroundColor="White"
+                       CornerRadius="16"
+                       Margin="5"
+                       WidthRequest="120">
+                        <local:CustomDatePicker
+                               HorizontalOptions="CenterAndExpand"
+                               TextColor="#7289da"
+                               FontSize="18"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Time" Margin="20,0" TextColor="White" FontSize="24"/>
+                    <Frame BackgroundColor="White"
+                       CornerRadius="16"
+                       Margin="5"
+                       WidthRequest="120">
+                        <local:CustomTimePicker
+                               HorizontalOptions="Center"
+                               TextColor="#7289da"
+                               FontSize="18"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
