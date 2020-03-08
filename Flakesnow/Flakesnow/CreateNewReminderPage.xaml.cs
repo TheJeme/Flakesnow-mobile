@@ -17,26 +17,28 @@ namespace Flakesnow
 			InitializeComponent ();
 		}
 
-		void OnSaveClicked(object sender, EventArgs args)
+        void OnSaveClicked(object sender, EventArgs args)
 		{
-        }
+			Navigation.PushAsync(new MainPage());
+		}
 
-        void OnReminderTapped(object sender, EventArgs args)
-        {
-            ReminderFrame.BackgroundColor = Color.White;
-            CounterFrame.BackgroundColor = Color.LightGray;
 
-            ReminderLayout.IsVisible = true;
-            CounterLayout.IsVisible = false;
-        }
+		void OnReminderTapped(object sender, EventArgs args)
+		{
+			ReminderFrame.BackgroundColor = Color.White;
+			CounterFrame.BackgroundColor = Color.LightGray;
 
-        void OnCounterTapped(object sender, EventArgs args)
-        {
-            ReminderFrame.BackgroundColor = Color.LightGray;
-            CounterFrame.BackgroundColor = Color.White;
+			ReminderLayout.IsVisible = true;
+			CounterLayout.IsVisible = false;
+		}
 
-            ReminderLayout.IsVisible = false;
-            CounterLayout.IsVisible = true;
-        }
-    }
+		void OnCounterTapped(object sender, EventArgs args)
+		{
+			ReminderFrame.BackgroundColor = Color.LightGray;
+			CounterFrame.BackgroundColor = Color.White;
+
+			ReminderLayout.IsVisible = false;
+			CounterLayout.IsVisible = true;
+		}
+	}
 }

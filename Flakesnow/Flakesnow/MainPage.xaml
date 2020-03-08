@@ -7,15 +7,14 @@
              Title="Flakesnow">
     <ContentPage.ToolbarItems>
         <ToolbarItem
-                 Icon="plus.png"
+                 Icon="addnew.png"
                  Order="Primary"
                  Priority="0"
                  Clicked="OnCreateNewClicked"/>
-        <ToolbarItem
-                 Icon="menu.png"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="OnSettingsClicked"/>
+        <ToolbarItem Text ="Change order"  
+              Priority="1" Order="Secondary" Clicked="OnSettingsClicked" />
+        <ToolbarItem Text ="Info"  
+              Priority="1" Order="Secondary" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>
@@ -28,7 +27,6 @@
                 </StackLayout>
             </Frame>
         </Grid>
-        
     </StackLayout>
 
 </ContentPage>

@@ -2,6 +2,7 @@
 <resources>
 
   <style name="MainTheme" parent="MainTheme.Base">
+    
   </style>
   <!-- Base theme applied no matter what API -->
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -27,4 +28,15 @@
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#e33b29</item>
   </style>
+  
+  <style name="Theme.Splash"
+       parent="Theme.AppCompat.NoActionBar">
+    <item name="windowNoTitle">true</item>
+
+    <item name="colorPrimary">#000000</item>
+    <item name="colorPrimaryDark">#000000</item>
+
+    <item name="android:windowBackground">@drawable/SplashScreen</item>
+  </style>
+  
 </resources>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,24 @@ namespace Flakesnow
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         void OnSettingsClicked(object sender, EventArgs args)
         {
-            DisplayAlert("Hi", "hi", "canhel");
+
         }
 
         void OnCreateNewClicked(object sender, EventArgs args)
         {
             Navigation.PushAsync(new CreateNewReminderPage());
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Process.GetCurrentProcess().CloseMainWindow();
+            Process.GetCurrentProcess().Close();
+            return true;
         }
     }
 }

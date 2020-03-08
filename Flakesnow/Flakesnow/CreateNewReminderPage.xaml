@@ -78,9 +78,9 @@
                        Margin="5"
                        WidthRequest="120">
                         <local:CustomDatePicker
-                               HorizontalOptions="CenterAndExpand"
+                               HorizontalOptions="Center"
                                TextColor="#7289da"
-                               FontSize="18"/>
+                               FontSize="20"/>
                     </Frame>
                 </StackLayout>
                 <StackLayout>
@@ -92,7 +92,7 @@
                         <local:CustomTimePicker
                                HorizontalOptions="Center"
                                TextColor="#7289da"
-                               FontSize="18"/>
+                               FontSize="20"/>
                     </Frame>
                 </StackLayout>
             </StackLayout>
