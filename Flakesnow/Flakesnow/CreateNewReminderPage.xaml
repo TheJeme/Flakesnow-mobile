@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flakesnow"
              x:Class="Flakesnow.CreateNewReminderPage"
-             BackgroundColor="#36393f">
+             BackgroundColor="#36393f"
+             Title="Flakesnow">
+
     <ContentPage.ToolbarItems>
-            <ToolbarItem
-                 Name="Save"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="OnSaveClicked"/>
-        </ContentPage.ToolbarItems>
+        <ToolbarItem Name="Cancel" Priority="-1" Order="Primary" Clicked="OnCancelClicked"/>
+        <ToolbarItem Name="Save" Order="Primary" Priority="0" Clicked="OnSaveClicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
 
         <StackLayout>
@@ -31,7 +31,7 @@
                         <TapGestureRecognizer Tapped="OnReminderTapped" NumberOfTapsRequired="1"/>
                     </Frame.GestureRecognizers>
 
-                    <Label Text="Reminder" TextColor="#7289da" FontSize="24" HorizontalTextAlignment="Center"/>
+                    <Label Text="Reminder" TextColor="{StaticResource BlueColor}" FontSize="24" HorizontalTextAlignment="Center"/>
                 </Frame>
                 <Frame x:Name="CounterFrame"
                        BackgroundColor="LightGray"
@@ -43,7 +43,7 @@
                         <TapGestureRecognizer Tapped="OnCounterTapped" NumberOfTapsRequired="1"/>
                     </Frame.GestureRecognizers>
 
-                    <Label Text="Counter" TextColor="#7289da" FontSize="24" HorizontalTextAlignment="Center"/>
+                    <Label Text="Counter" TextColor="{StaticResource BlueColor}" FontSize="24" HorizontalTextAlignment="Center"/>
                 </Frame>
             </StackLayout>
             
@@ -79,7 +79,7 @@
                        WidthRequest="120">
                         <local:CustomDatePicker
                                HorizontalOptions="Center"
-                               TextColor="#7289da"
+                               TextColor="{StaticResource BlueColor}"
                                FontSize="20"/>
                     </Frame>
                 </StackLayout>
@@ -91,7 +91,7 @@
                        WidthRequest="120">
                         <local:CustomTimePicker
                                HorizontalOptions="Center"
-                               TextColor="#7289da"
+                               TextColor="{StaticResource BlueColor}"
                                FontSize="20"/>
                     </Frame>
                 </StackLayout>

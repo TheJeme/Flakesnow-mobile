@@ -17,10 +17,11 @@
               Priority="1" Order="Secondary" />
     </ContentPage.ToolbarItems>
 
+
     <StackLayout>
 
         <Grid Margin="0,30">
-            <Frame BackgroundColor="#e33b29" CornerRadius="16" Margin="30,20">
+            <Frame BackgroundColor="{StaticResource OrangeColor}" CornerRadius="16" Margin="30,20">
                 <StackLayout>
                     <Label Text="Reminder" TextColor="White" FontSize="24" />
                     <Label Text="Skrybä on äijä Skrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjä" TextColor="White" FontSize="16" />
