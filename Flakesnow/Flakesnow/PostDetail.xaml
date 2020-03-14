@@ -2,52 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flakesnow"
-             x:Class="Flakesnow.CreateNewReminderPage"
+             x:Class="Flakesnow.PostDetail"
              BackgroundColor="#36393f"
              Title="Flakesnow">
-
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Cancel" Priority="-1" Order="Primary" Clicked="OnCancelClicked"/>
         <ToolbarItem Name="Save" Order="Primary" Priority="0" Clicked="OnSaveClicked"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-
-        <StackLayout>
-            <Label Text="Create new"
-                   TextColor="White"
-                   FontSize="48"
-                   Margin="20"
-                   HorizontalTextAlignment="Center"/>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-
-                <Frame x:Name="ReminderFrame"
-                       BackgroundColor="LightGray"
-                       CornerRadius="16"
-                       Margin="22"
-                       WidthRequest="200">
-                    
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnReminderTapped" NumberOfTapsRequired="1"/>
-                    </Frame.GestureRecognizers>
-
-                    <Label Text="Reminder" TextColor="{StaticResource BlueColor}" FontSize="24" HorizontalTextAlignment="Center"/>
-                </Frame>
-                <Frame x:Name="CounterFrame"
-                       BackgroundColor="LightGray"
-                       CornerRadius="16"
-                       Margin="22"
-                       WidthRequest="200">
-
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnCounterTapped" NumberOfTapsRequired="1"/>
-                    </Frame.GestureRecognizers>
-
-                    <Label Text="Counter" TextColor="{StaticResource BlueColor}" FontSize="24" HorizontalTextAlignment="Center"/>
-                </Frame>
-            </StackLayout>
-
-            <StackLayout x:Name="TitleLayout" IsVisible="False" HorizontalOptions="Center" Margin="5">
+        <StackLayout Margin="0,20">
+            <StackLayout HorizontalOptions="Center" Margin="5">
                 <Label Text="Title" Margin="20,0" TextColor="White" FontSize="24"/>
                 <Frame BackgroundColor="White"
                        CornerRadius="16"
@@ -65,12 +31,12 @@
                        CornerRadius="16"
                        Margin="5"
                        WidthRequest="300"
-                       HeightRequest="150">
+                       HeightRequest="250">
                     <local:CustomEditor x:Name="DescriptionEditor" VerticalOptions="FillAndExpand"/>
                 </Frame>
             </StackLayout>
 
-            <StackLayout x:Name="CounterLayout" Orientation="Horizontal" IsVisible="False" HorizontalOptions="Center"  Margin="5,10">
+            <StackLayout x:Name="CounterLayout" IsVisible="False" Orientation="Horizontal" HorizontalOptions="Center"  Margin="5,10">
                 <StackLayout>
                     <Label Text="Date" Margin="20,0" TextColor="White" FontSize="24"/>
                     <Frame BackgroundColor="White"
@@ -78,12 +44,13 @@
                        Margin="5"
                        WidthRequest="120">
                         <local:CustomDatePicker
-                               x:Name="Datepicker"
+                               x:Name="DatePicker"
                                HorizontalOptions="Center"
                                TextColor="{StaticResource BlueColor}"
                                FontSize="20"/>
                     </Frame>
                 </StackLayout>
+                
                 <StackLayout>
                     <Label Text="Time" Margin="20,0" TextColor="White" FontSize="24"/>
                     <Frame BackgroundColor="White"
@@ -91,7 +58,7 @@
                        Margin="5"
                        WidthRequest="120">
                         <local:CustomTimePicker
-                               x:Name="Timepicker"
+                               x:Name="TimePicker"
                                HorizontalOptions="Center"
                                TextColor="{StaticResource BlueColor}"
                                FontSize="20"/>
@@ -99,6 +66,21 @@
                 </StackLayout>
             </StackLayout>
 
+            <Frame x:Name="DeleteFrame"
+                           BackgroundColor="LightGray"
+                           CornerRadius="16"
+                           Margin="5,10"
+                           HorizontalOptions="Center"
+                           WidthRequest="300">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDeleteTapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+
+                    <Label Text="Delete" TextColor="{StaticResource BlueColor}" FontSize="24" HorizontalTextAlignment="Center"/>
+                </Frame>
+                
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

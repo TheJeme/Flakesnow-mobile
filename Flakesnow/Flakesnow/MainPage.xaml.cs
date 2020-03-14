@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Flakesnow.Model;
+using SQLite;
+using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Flakesnow
@@ -16,7 +15,24 @@ namespace Flakesnow
             NavigationPage.SetHasBackButton(this, false);
         }
 
-        void OnSettingsClicked(object sender, EventArgs args)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation))
+            {
+                connection.CreateTable<Post>();
+                var posts = connection.Table<Post>().ToList();
+                ListViewLayout.ItemsSource = posts;
+            }
+        }
+
+        void OnChangeOrderClicked(object sender, EventArgs args)
+        {
+
+        }
+
+        void OnInfoClicked(object sender, EventArgs args)
         {
 
         }
@@ -31,6 +47,16 @@ namespace Flakesnow
             Process.GetCurrentProcess().CloseMainWindow();
             Process.GetCurrentProcess().Close();
             return true;
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedPost = ListViewLayout.SelectedItem as Post;
+
+            if (selectedPost != null)
+            {
+                Navigation.PushAsync(new PostDetail(selectedPost));
+            }
         }
     }
 }

@@ -2,32 +2,60 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flakesnow"
-             BackgroundColor="#36393f"                  
+             BackgroundColor="#36393f"
              x:Class="Flakesnow.MainPage"
              Title="Flakesnow">
     <ContentPage.ToolbarItems>
-        <ToolbarItem
-                 Icon="addnew.png"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="OnCreateNewClicked"/>
-        <ToolbarItem Text ="Change order"  
-              Priority="1" Order="Secondary" Clicked="OnSettingsClicked" />
-        <ToolbarItem Text ="Info"  
-              Priority="1" Order="Secondary" />
+        <ToolbarItem Icon="addnew.png" Order="Primary" Priority="0" Clicked="OnCreateNewClicked"/>
+        <ToolbarItem Text ="Change order" Priority="1" Order="Secondary" Clicked="OnChangeOrderClicked" />
+        <ToolbarItem Text ="Info" Priority="1" Order="Secondary" Clicked="OnInfoClicked" />
     </ContentPage.ToolbarItems>
-
-
+    
     <StackLayout>
-
-        <Grid Margin="0,30">
-            <Frame BackgroundColor="{StaticResource OrangeColor}" CornerRadius="16" Margin="30,20">
-                <StackLayout>
-                    <Label Text="Reminder" TextColor="White" FontSize="24" />
-                    <Label Text="Skrybä on äijä Skrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjäSkrybä on äijjä" TextColor="White" FontSize="16" />
-                </StackLayout>
-            </Frame>
-        </Grid>
+        <ListView x:Name="ListViewLayout" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="{StaticResource OrangeColor}" CornerRadius="16" Margin="30,20">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" IsVisible="True" TextColor="White" FontSize="24"/>
+                                <Label x:Name="DescriptionLayout" Text="{Binding Description}" TextColor="White" FontSize="16">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding IsCounter}" Value="true">
+                                            <Setter Property="IsVisible" Value="False"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <StackLayout x:Name="CounterLayout" IsVisible="False" Margin="5" Orientation="Horizontal" HorizontalOptions="Center">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout" Binding="{Binding IsCounter}" Value="true">
+                                            <Setter Property="IsVisible" Value="True"/>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <StackLayout>
+                                        <Label Text="Days" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="Hours" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="Minutes" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="Seconds" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
+
 
 </ContentPage>

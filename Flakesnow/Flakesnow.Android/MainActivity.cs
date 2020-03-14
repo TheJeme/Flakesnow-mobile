@@ -1,9 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using System.IO;
 
 namespace Flakesnow.Droid
 {
@@ -19,7 +19,12 @@ namespace Flakesnow.Droid
 
             base.OnCreate(savedInstanceState);
             Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            string dbName = "task_db.sqlite";
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullPath = Path.Combine(folderPath, dbName);
+
+            LoadApplication(new App(fullPath));
         }
     }
 }
