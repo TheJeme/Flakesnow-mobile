@@ -73,7 +73,7 @@
             <StackLayout x:Name="CounterLayout" Orientation="Horizontal" IsVisible="False" HorizontalOptions="Center"  Margin="5,10">
                 <StackLayout>
                     <Label Text="Date" Margin="20,0" TextColor="White" FontSize="24"/>
-                    <Frame BackgroundColor="White"
+                    <Frame BackgroundColor="LightGray"
                        CornerRadius="16"
                        Margin="5"
                        WidthRequest="120">
@@ -86,7 +86,7 @@
                 </StackLayout>
                 <StackLayout>
                     <Label Text="Time" Margin="20,0" TextColor="White" FontSize="24"/>
-                    <Frame BackgroundColor="White"
+                    <Frame BackgroundColor="LightGray"
                        CornerRadius="16"
                        Margin="5"
                        WidthRequest="120">

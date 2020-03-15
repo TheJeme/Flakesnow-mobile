@@ -7,8 +7,6 @@
              Title="Flakesnow">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="addnew.png" Order="Primary" Priority="0" Clicked="OnCreateNewClicked"/>
-        <ToolbarItem Text ="Change order" Priority="1" Order="Secondary" Clicked="OnChangeOrderClicked" />
-        <ToolbarItem Text ="Info" Priority="1" Order="Secondary" Clicked="OnInfoClicked" />
     </ContentPage.ToolbarItems>
     
     <StackLayout>
@@ -19,14 +17,14 @@
                         <Frame BackgroundColor="{StaticResource OrangeColor}" CornerRadius="16" Margin="30,20">
                             <StackLayout>
                                 <Label Text="{Binding Title}" IsVisible="True" TextColor="White" FontSize="24"/>
-                                <Label x:Name="DescriptionLayout" Text="{Binding Description}" TextColor="White" FontSize="16">
+                                <Label x:Name="DescriptionLayout" Margin="5,0" Text="{Binding Description}" TextColor="White" FontSize="16">
                                     <Label.Triggers>
                                         <DataTrigger TargetType="Label" Binding="{Binding IsCounter}" Value="true">
                                             <Setter Property="IsVisible" Value="False"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
-                                <StackLayout x:Name="CounterLayout" IsVisible="False" Margin="5" Orientation="Horizontal" HorizontalOptions="Center">
+                                <StackLayout x:Name="CounterLayout" IsVisible="False" Orientation="Horizontal" HorizontalOptions="Center">
                                     <StackLayout.Triggers>
                                         <DataTrigger TargetType="StackLayout" Binding="{Binding IsCounter}" Value="true">
                                             <Setter Property="IsVisible" Value="True"/>
@@ -34,19 +32,15 @@
                                     </StackLayout.Triggers>
                                     <StackLayout>
                                         <Label Text="Days" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
-                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding Days}" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
                                     </StackLayout>
                                     <StackLayout>
                                         <Label Text="Hours" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
-                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding Hours}" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
                                     </StackLayout>
                                     <StackLayout>
                                         <Label Text="Minutes" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
-                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
-                                    </StackLayout>
-                                    <StackLayout>
-                                        <Label Text="Seconds" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
-                                        <Label Text="00" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding Minutes}" TextColor="White" FontSize="18" HorizontalTextAlignment="Center"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

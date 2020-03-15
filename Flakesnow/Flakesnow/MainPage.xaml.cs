@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using Xamarin.Forms;
 
+
 namespace Flakesnow
 {
     public partial class MainPage : ContentPage
@@ -15,6 +16,7 @@ namespace Flakesnow
             NavigationPage.SetHasBackButton(this, false);
         }
 
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -23,18 +25,27 @@ namespace Flakesnow
             {
                 connection.CreateTable<Post>();
                 var posts = connection.Table<Post>().ToList();
+
+    
+
+                foreach(var i in posts)
+                {
+                    i.Days = CalculateTimeBetween(Convert.ToDateTime(i.Date), TimeSpan.Parse(i.Time)).Days.ToString();
+                    i.Hours = CalculateTimeBetween(Convert.ToDateTime(i.Date), TimeSpan.Parse(i.Time)).Hours.ToString();
+                    i.Minutes = CalculateTimeBetween(Convert.ToDateTime(i.Date), TimeSpan.Parse(i.Time)).Minutes.ToString();
+                    connection.Update(i);
+                }
+
                 ListViewLayout.ItemsSource = posts;
             }
         }
 
-        void OnChangeOrderClicked(object sender, EventArgs args)
+        TimeSpan CalculateTimeBetween(DateTime date, TimeSpan time)
         {
+            DateTime datetime = date + time;
+            DateTime datetimeNow = DateTime.Now;
 
-        }
-
-        void OnInfoClicked(object sender, EventArgs args)
-        {
-
+            return (datetime - datetimeNow);
         }
 
         void OnCreateNewClicked(object sender, EventArgs args)

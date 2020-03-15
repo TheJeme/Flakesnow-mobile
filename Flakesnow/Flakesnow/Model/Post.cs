@@ -10,17 +10,19 @@ namespace Flakesnow.Model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        [MaxLength(250)]
         public string Title { get; set; }
 
-        [MaxLength(250)]
         public string Description { get; set; }
 
-        [MaxLength(250)]
         public string Time { get; set; }
 
-        [MaxLength(250)]
         public string Date { get; set; }
+
+        public string Days { get; set; }
+
+        public string Hours { get; set; }
+
+        public string Minutes { get; set; }
 
         public bool IsCounter { get; set; }
     }

@@ -41,6 +41,12 @@ namespace Flakesnow
 
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            ShowCancelAlert();
+            return true;
+        }
+
         void OnSaveClicked(object sender, EventArgs args)
         {
             selectedPost.Title = TitleEntry.Text;
