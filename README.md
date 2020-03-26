@@ -5,7 +5,7 @@
 
 ## Download
 
-Not done yet
+[Download](https://github.com/TheJeme/Flakesnow-mobile/releases/ "Flakesnow-mobile") the latest version.
 
 ## License
 
